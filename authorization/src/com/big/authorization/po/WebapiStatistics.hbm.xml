@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- the mapping of WebapiStatistics class -->
+<hibernate-mapping>
+	<class name="com.big.authorization.po.WebapiStatistics" table="webapi_statistics"
+		catalog="authorization">
+		<id name="id" type="java.lang.String">
+			<column name="id" />
+		</id>
+
+		<property name="requestDate" type="java.util.Date">
+			<column name="request_date" length="0" not-null="true" />
+		</property>
+		<property name="requestTimes" type="java.lang.Integer">
+			<column name="request_times" not-null="true" />
+		</property>
+		<many-to-one name="authorizedWebapi" class="com.big.authorization.po.AuthorizedWebapi"
+			fetch="select" cascade="delete">
+			<column name="authorized_webapi_id" not-null="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

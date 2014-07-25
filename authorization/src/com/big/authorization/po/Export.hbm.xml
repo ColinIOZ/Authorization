@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- the mapping of Export class -->
+<hibernate-mapping>
+	<class name="com.big.authorization.po.Export" table="export"
+		catalog="authorization">
+		<id name="id" type="java.lang.String">
+			<column name="id" />
+		</id>
+
+		<property name="nameEn" type="java.lang.String">
+			<column name="name_en" length="50" />
+		</property>
+		<property name="nameCn" type="java.lang.String">
+			<column name="name_cn" length="50" />
+		</property>
+		<property name="instituteEn" type="java.lang.String">
+			<column name="institute_en" length="100" />
+		</property>
+		<property name="instituteCn" type="java.lang.String">
+			<column name="institute_cn" length="100" />
+		</property>
+		<property name="addressEn" type="java.lang.String">
+			<column name="address_en" length="100" />
+		</property>
+		<property name="addressCn" type="java.lang.String">
+			<column name="address_cn" length="100" />
+		</property>
+		<property name="postcode" type="java.lang.String">
+			<column name="postcode" length="20" />
+		</property>
+		<property name="homepageEn" type="java.lang.String">
+			<column name="homepage_en" length="100" />
+		</property>
+		<property name="homepageCn" type="java.lang.String">
+			<column name="homepage_cn" length="100" />
+		</property>
+		<property name="domain" type="java.lang.String">
+			<column name="domain" length="50" />
+		</property>
+
+		<many-to-one name="user" class="com.big.authorization.po.User"
+			fetch="select" cascade="delete">
+			<column name="user_id" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

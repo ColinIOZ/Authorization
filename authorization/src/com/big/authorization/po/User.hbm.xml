@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- the mapping of User class -->
+<hibernate-mapping>
+	<class name="com.big.authorization.po.User" table="user" catalog="authorization">
+		<id name="id" type="java.lang.String">
+			<column name="id" />
+		</id>
+		<property name="userName" type="java.lang.String">
+			<column name="user_name" length="50" not-null="true" />
+		</property>
+		<property name="userPwd" type="java.lang.String">
+			<column name="user_pwd" length="50" not-null="true" />
+		</property>
+		<property name="email" type="java.lang.String">
+			<column name="email" length="50" />
+		</property>
+		<property name="institute" type="java.lang.String">
+			<column name="institute" length="100" />
+		</property>
+		<property name="homepage" type="java.lang.String">
+			<column name="homepage" length="100" />
+		</property>
+		<property name="selfIntroduction" type="java.lang.String">
+			<column name="self_introduction" length="500" />
+		</property>
+		<property name="role" type="java.lang.Integer">
+			<column name="role" not-null="true" />
+		</property>
+
+	</class>
+</hibernate-mapping>

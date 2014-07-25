@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- the mapping of AuthorizedWeb class -->
+<hibernate-mapping>
+	<class name="com.big.authorization.po.AuthorizedWeb" table="authorized_web"
+		catalog="authorization">
+		<id name="id" type="java.lang.String">
+			<column name="id" />
+		</id>
+
+		<property name="isauthorized" type="java.lang.Integer">
+			<column name="isauthorized" not-null="true">
+				<comment>status of authorization</comment>
+			</column>
+		</property>
+		<property name="remark" type="java.lang.String">
+			<column name="remark" length="100">
+				<comment>other information</comment>
+			</column>
+		</property>
+		<many-to-one name="user" class="com.big.authorization.po.User"
+			fetch="select" cascade="delete">
+			<column name="user_id" not-null="true">
+				<comment>identifier of the user who to be authorized</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="web" class="com.big.authorization.po.WebInfo"
+			fetch="select" cascade="delete">
+			<column name="web_id" not-null="true">
+				<comment>identifier of the web to be used</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

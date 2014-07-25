@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- set the driver of mysql -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- set the url of mysql -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/authorization</property>
+		<!-- set the username of mysql -->
+		<property name="hibernate.connection.username">root</property>
+		<!-- set the password of mysql -->
+		<property name="hibernate.connection.password">123</property>
+		<!-- set the dialect of mysql -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- show the sql of hibernate operating -->
+		<property name="show_sql">true</property>
+		<!-- output the formated sql statement -->
+		<property name="format_sql">true</property>
+		<!-- the list of XML mapping files -->
+		<mapping resource="com/big/authorization/po/User.hbm.xml" />
+		<mapping resource="com/big/authorization/po/AuthorizedWeb.hbm.xml" />
+		<mapping resource="com/big/authorization/po/AuthorizedWebapi.hbm.xml" />
+		<mapping resource="com/big/authorization/po/Export.hbm.xml" />
+		<mapping resource="com/big/authorization/po/WebapiInfo.hbm.xml" />
+		<mapping resource="com/big/authorization/po/WebapiStatistics.hbm.xml" />
+		<mapping resource="com/big/authorization/po/WebInfo.hbm.xml" />
+
+
+	</session-factory>
+</hibernate-configuration>

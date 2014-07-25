@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- the mapping of AuthorizedWebapi class -->
+<hibernate-mapping>
+	<class name="com.big.authorization.po.AuthorizedWebapi" table="authorized_webapi"
+		catalog="authorization">
+		<id name="id" type="java.lang.String">
+			<column name="id" />
+		</id>
+
+		<property name="isauthorized" type="java.lang.Integer">
+			<column name="isauthorized" not-null="true">
+				<comment>status of authorization,0==no,1==yes</comment>
+			</column>
+		</property>
+		<property name="hostUrl" type="java.lang.String">
+			<column name="host_url" length="500" not-null="true">
+				<comment>the host url who whant to visit the api</comment>
+			</column>
+		</property>
+		<property name="limitRequest" type="java.lang.Integer">
+			<column name="limit_request" not-null="true">
+				<comment>limited request each day</comment>
+			</column>
+		</property>
+		<property name="remark" type="java.lang.String">
+			<column name="remark" length="500">
+				<comment>other needed infromaton</comment>
+			</column>
+		</property>
+		<many-to-one name="user" class="com.big.authorization.po.User"
+			fetch="select" cascade="delete">
+			<column name="user_id" not-null="true">
+				<comment>identifier of the user to be authorized</comment>
+			</column>
+		</many-to-one>
+		<many-to-one name="webapi" class="com.big.authorization.po.WebapiInfo"
+			fetch="select" cascade="delete">
+			<column name="webapi_id" not-null="true">
+				<comment>identifier of the api which to be used</comment>
+			</column>
+		</many-to-one>
+	</class>
+</hibernate-mapping>

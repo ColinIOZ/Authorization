@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<!-- 指定Struts 2配置文件的根元素 -->
+<struts>
+
+	<!-- set the mode for develop mode
+	<constant name="struts.devMode" value="true" />  -->	
+	
+	<!-- set the encoding -->	
+	<constant name="struts.i18n.encoding" value="utf-8"/>
+	<!-- set the internationalization resource -->
+	<constant name="struts.custom.i18n.resources" value="mess"/>
+	
+	<!-- set all the action of user-->
+	<package name="other" extends="struts-default">
+		<!-- set the ValidateCode action which will create the ValidateCode-->
+		<action name="validateCode" class="validateCodeAction">
+			<result type="stream">
+				<param name="contentType">image/jpeg</param>
+				<param name="inputName">inputStream</param>
+			</result> 
+		</action>
+		<!-- set checkValidateCode action  -->
+		<action name="checkValidateCode" class="userAction" method="checkValidateCode" >
+		</action>
+		<!-- set the user login action which will invoke userLogin method-->
+		<action name="login" class="userAction" method="userLogin">
+			<result name="userlogin"  type="redirect">common/index.jsp</result>
+			<result name="adminlogin"  type="redirect">admin/index.jsp</result>
+			<result name="error">common/login.jsp</result>
+		</action>
+	</package>
+	
+	<!-- set all the action of common-->
+	<package name="common" extends="struts-default" namespace="/common">
+		
+		<!-- set user register action which will invoke userRegister method -->
+		<action name="register" class="userAction" method="userRegister">
+			<result type="redirect">/common/regsuc.jsp</result>
+			<result name="regError" >/common/register.jsp</result>
+		</action>
+		<!-- set user login out action which will invoke loginOut method -->
+		<action name="loginOut" class="userAction" method="loginOut">
+			<result type="redirect" >https://castest:8443/casweb/login</result>
+		</action>
+		<!-- set find pwd action which will invoke findPwdWithEmail method -->
+		<action name="findPwdWithEmail" class="userAction" method="findPwdWithEmail">
+			<result type="redirect">/common/forgetpwdnext.jsp</result>
+			<result name="findPwdError" >/common/forgetpwd.jsp</result>
+		</action>
+		<!-- set findPwdNext action -->
+		<action name="findPwdNext" class="userAction" method="findPwdNext">
+			<result type="redirect">/common/resetpwd.jsp</result>
+			<result name="findPwdError">/common/forgetpwd.jsp</result>
+		</action>
+		<!-- set resetPwd action -->
+		<action name="resetPwd" class="userAction" method="resetPwd">
+			<result type="redirect">/common/login.jsp</result>
+		</action>
+		<!-- set validate email action which will invoke validateEmail method -->
+		<action name="validateEmailOrUserName" class="userAction" method="validateEmailOrUserName" >
+		</action>
+		<action name="webInfoList" class="webInfoAction" method="webInfoList">
+			<result>/common/webinfolist.jsp</result>
+		</action>
+		<action name="queryWebInfoListByWebName" class="webInfoAction" method="queryWebInfoListByWebName">
+			<result>/common/webinfoorderlist.jsp</result>
+		</action>
+		<action name="webapiInfoList" class="webapiInfoAction" method="webapiInfoList">
+			<result>/common/webapiinfolist.jsp</result>
+		</action>
+		<action name="queryWebapiListByapiName" class="webapiInfoAction" method="queryWebapiListByapiName">
+			<result>/common/webapiinfoorderlist.jsp</result>
+		</action>
+		<action name="showWebInfoByWebId" class="webInfoAction" method="showWebInfoByWebId">
+			<result>/common/webinfo.jsp</result>
+		</action>
+		<action name="showWebapiByWebapiId" class="webapiInfoAction" method="showWebapiByWebapiId">
+			<result>/common/webapiinfo.jsp</result>
+		</action>
+	</package>
+	
+	<!-- set all the action of user -->
+	<package name="user" extends="struts-default" namespace="/user">
+		<!-- set validate pwd action which will invoke validateUserPwd method -->
+		<action name="validateUserPwd" class="userAction" method="validateUserPwd" >
+		</action>
+		<!-- set complete userInfo action which will invoke completeUserInfo method -->
+		<action name="completeUserInfo" class="userAction" method="completeUserInfo" >
+			<result>/user/userinfo.jsp</result>
+			<result name="completeError">/user/userinfo.jsp</result>
+		</action>
+		<!-- set modify userPwd action which will invoke modifyUserPwd method -->
+		<action name="modifyUserPwd" class="userAction" method="modifyUserPwd" >
+			<result>/user/modifypwd.jsp</result>
+			<result name="modifyError">/user/modifypwd.jsp</result>
+		</action>
+		<action name="remindWebAuthorisation" class="webInfoAction" method="remindWebAuthorisation">
+		</action>
+		<action name="remindWebapiAuthorisation" class="webapiInfoAction" method="remindWebapiAuthorisation">
+		</action>
+			<action name="judgeIsAuthorizedByWebId" class="authorizedWebAction" method="judgeIsAuthorizedByWebId">
+		</action>
+		<action name="showWebResourceListByUser" class="authorizedWebAction" method="showWebResourceListByUser">
+			<result>/user/webresourcelist.jsp</result>
+		</action>
+		<action name="applyForWebAuthorisation" class="authorizedWebAction" method="applyForWebAuthorisation">
+			<result>/user/webresourcelist.jsp</result>
+		</action>
+		<action name="judgeIsAuthorizedByWebapiId" class="authorizedWebapiAction" method="judgeIsAuthorizedByWebapiId">
+		</action>
+		<action name="showWebapiResourceListByUser" class="authorizedWebapiAction" method="showWebapiResourceListByUser">
+			<result>/user/webapiresourcelist.jsp</result>
+		</action>
+		<action name="applyForWebapiAuthorisation" class="authorizedWebapiAction" method="applyForWebapiAuthorisation">
+			<result>/user/webapiresourcelist.jsp</result>
+		</action>
+	</package>
+	
+	<!-- set all the action of admin -->	
+	<package name="admin" extends="struts-default" namespace="/admin">
+		<action name="manageWebInfoList" class="webInfoAction" method="manageWebInfoList">
+			<result>/admin/managewebinfolist.jsp</result>
+		</action>
+		<action name="addWebInfo" class="webInfoAction" method="addWebInfo">
+			<result>/admin/managewebinfolist.jsp</result>
+		</action>
+		<action name="deleteWebInfo" class="webInfoAction" method="deleteWebInfo">
+			<result>/admin/managewebinfolist.jsp</result>
+		</action>
+		<action name="deleteWebInfos" class="webInfoAction" method="deleteWebInfos">
+			<result>/admin/managewebinfolist.jsp</result>
+		</action>
+		<action name="modifyWebInfoPre" class="webInfoAction" method="modifyWebInfoPre">
+			<result>/admin/managewebinfolist.jsp</result>
+		</action>
+		<action name="modifyWebInfo" class="webInfoAction" method="modifyWebInfo">
+			<result>/admin/managewebinfolist.jsp</result>
+		</action>
+		<action name="manageWebapiInfoList" class="webapiInfoAction" method="manageWebapiInfoList">
+			<result>/admin/managewebapiinfolist.jsp</result>
+		</action>
+		<action name="addWebapiInfo" class="webapiInfoAction" method="addWebapiInfo">
+			<result>/admin/managewebapiinfolist.jsp</result>
+		</action>
+		<action name="deleteWebapiInfo" class="webapiInfoAction" method="deleteWebapiInfo">
+			<result>/admin/managewebapiinfolist.jsp</result>
+		</action>
+		<action name="deleteWebapiInfos" class="webapiInfoAction" method="deleteWebapiInfos">
+			<result>/admin/managewebapiinfolist.jsp</result>
+		</action>
+		<action name="modifyWebapiInfoPre" class="webapiInfoAction" method="modifyWebapiInfoPre">
+			<result>/admin/managewebapiinfolist.jsp</result>
+		</action>
+		<action name="modifyWebapiInfo" class="webapiInfoAction" method="modifyWebapiInfo">
+			<result>/admin/managewebapiinfolist.jsp</result>
+		</action>
+		<action name="authorizedWebList" class="authorizedWebAction" method="authorizedWebList">
+			<result>/admin/authorizedweblist.jsp</result>
+		</action>
+		<action name="setWebAuthorization" class="authorizedWebAction" method="setWebAuthorization">
+		</action>
+		<action name="queryAuthorizedWebListByAuthorization" class="authorizedWebAction" method="queryAuthorizedWebListByAuthorization">
+			<result>/admin/authorizedweborderlist.jsp</result>
+		</action>
+		<action name="authorizedWebapiList" class="authorizedWebapiAction" method="authorizedWebapiList">
+			<result>/admin/authorizedwebapilist.jsp</result>
+		</action>
+		<action name="setWebapiLimitRequestTimes" class="authorizedWebapiAction" method="setWebapiLimitRequestTimes">
+		</action>
+		<action name="setWebapiAuthorization" class="authorizedWebapiAction" method="setWebapiAuthorization">
+		</action>
+		<action name="queryAuthorizedWebapiListByAuthorization" class="authorizedWebapiAction" method="queryAuthorizedWebapiListByAuthorization">
+			<result>/admin/authorizedwebapiorderlist.jsp</result>
+		</action>
+		<action name="countWebapiRequestTimes" class="webapiStatisticsAction" method="countWebapiRequestTimes">
+		</action>
+		<action name="webapiStatisticsList" class="webapiStatisticsAction" method="webapiStatisticsList">
+			<result>/admin/webapistatisticslist.jsp</result>
+		</action>
+	</package>
+	
+</struts>

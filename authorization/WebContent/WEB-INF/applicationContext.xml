@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!--set the sessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocation"
+			value="classpath:hibernate.cfg.xml">
+		</property>
+	</bean>
+	 
+	<!-- set all the spring bean -->
+	
+	<!-- set the HibernateBaseDao bean -->
+	<bean id="basedao" class="com.big.authorization.dao.hibernatedao.HibernateBaseDao">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	
+	<!-- set the UserDao bean which need cite the basedao-->
+	<bean id="userdao" class="com.big.authorization.dao.daoImplements.UserDaoImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	<!-- set the userService bean which need cite the userdao-->
+	<bean id="userService" class="com.big.authorization.service.serviceImplements.UserServiceImpl">
+		<property name="userdao" ref="userdao"></property>
+	</bean>
+	<!-- set the userAction bean which need cite the userService-->
+	<bean id="userAction" class="com.big.authorization.action.UserAction">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	<!-- set the ValidateCode bean -->
+	<bean id="validateCodeAction" class="com.big.authorization.action.ValidateCodeAction">
+	</bean>
+	
+	
+	<!-- set the WebInfoDao bean which need cite the basedao-->
+	<bean id="webinfodao" class="com.big.authorization.dao.daoImplements.WebInfoDaoImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	<!-- set the webInfoService bean which need cite the webinfodao-->
+	<bean id="webInfoService" class="com.big.authorization.service.serviceImplements.WebInfoServiceImpl">
+		<property name="webinfodao" ref="webinfodao"></property>
+	</bean>
+	<!-- set the webInfoAction bean which need cite the webInfoService-->
+	<bean id="webInfoAction" class="com.big.authorization.action.WebInfoAction">
+		<property name="webInfoService" ref="webInfoService"></property>
+		<property name="authorizedWebService" ref="authorizedWebService"></property>
+	</bean>
+	
+	
+	<!-- set the WebapiInfoDao bean which need cite the basedao-->
+	<bean id="webapiInfoDao" class="com.big.authorization.dao.daoImplements.WebapiInfoDaoImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	<!-- set the webapiInfoService bean which need cite the webapiinfodao-->
+	<bean id="webapiInfoService" class="com.big.authorization.service.serviceImplements.WebapiInfoServiceImpl">
+		<property name="webapiInfoDao" ref="webapiInfoDao"></property>
+	</bean>
+	<!-- set the webapiInfoAction bean which need cite the webapiInfoService-->
+	<bean id="webapiInfoAction" class="com.big.authorization.action.WebapiInfoAction">
+		<property name="webapiInfoService" ref="webapiInfoService"></property>
+		<property name="authorizedWebapiService" ref="authorizedWebapiService"></property>
+	</bean>
+	
+	
+	<!-- set the AuthorizedWebDao bean which need cite the basedao-->
+	<bean id="authorizedWebDao" class="com.big.authorization.dao.daoImplements.AuthorizedWebDaoImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	<!-- set the AuthorizedwebService bean which need cite the authorizedWebDao-->
+	<bean id="authorizedWebService" class="com.big.authorization.service.serviceImplements.AuthorizedWebServiceImpl">
+		<property name="authorizedWebDao" ref="authorizedWebDao"></property>
+	</bean>
+	<!-- set the AuthorizedWebAction bean which need cite the authorizedWebService-->
+	<bean id="authorizedWebAction" class="com.big.authorization.action.AuthorizedWebAction">
+		<property name="authorizedWebService" ref="authorizedWebService"></property>
+	</bean>
+	
+	
+	<!-- set the AuthorizedWebapiDao bean which need cite the basedao-->
+	<bean id="authorizedWebapiDao" class="com.big.authorization.dao.daoImplements.AuthorizedWebapiDaoImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	<!-- set the AuthorizedwebService bean which need cite the authorizedWebDao-->
+	<bean id="authorizedWebapiService" class="com.big.authorization.service.serviceImplements.AuthorizedWebapiServiceImpl">
+		<property name="authorizedWebapiDao" ref="authorizedWebapiDao"></property>
+	</bean>
+	<!-- set the AuthorizedWebAction bean which need cite the webapiInfoService-->
+	<bean id="authorizedWebapiAction" class="com.big.authorization.action.AuthorizedWebapiAction">
+		<property name="authorizedWebapiService" ref="authorizedWebapiService"></property>
+	</bean>
+	
+	
+	<!-- set the WebapiStatisticsDao bean which need cite the basedao-->
+	<bean id="webapiStatisticsDao" class="com.big.authorization.dao.daoImplements.WebapiStatisticsDaoImpl">
+		<property name="basedao" ref="basedao"></property>
+	</bean>
+	<!-- set the WebapiStatisticsService bean which need cite the authorizedWebDao-->
+	<bean id="webapiStatisticsService" class="com.big.authorization.service.serviceImplements.WebapiStatisticsServiceImpl">
+		<property name="webapiStatisticsDao" ref="webapiStatisticsDao"></property>
+	</bean>
+	<!-- set the WebapiStatisticsAction bean which need cite the webapiInfoService-->
+	<bean id="webapiStatisticsAction" class="com.big.authorization.action.WebapiStatisticsAction">
+		<property name="webapiStatisticsService" ref="webapiStatisticsService"></property>
+		<property name="authorizedWebapiService" ref="authorizedWebapiService"></property>
+	</bean>
+	
+</beans>
