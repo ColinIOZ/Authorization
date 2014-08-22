@@ -7,22 +7,12 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.util.Date;
 
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.struts2.ServletActionContext;
-
-import com.big.authorization.po.AuthorizedWeb;
 import com.big.authorization.po.AuthorizedWebapi;
 import com.big.authorization.po.User;
-import com.big.authorization.po.WebInfo;
 import com.big.authorization.po.WebapiInfo;
 import com.big.authorization.po.WebapiStatistics;
 import com.big.authorization.util.DBConnUtil;
 import com.big.authorization.util.IDUtil;
-import com.big.authorization.util.MD5Util;
-import com.big.authorization.util.PrintWriterUtil;
-import com.opensymphony.xwork2.ActionContext;
-import com.sun.org.apache.regexp.internal.recompile;
 
 public class ValidateAPIWS {
 	private User user;

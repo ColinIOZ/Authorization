@@ -11,7 +11,6 @@
  ***********************************************************************/
 package com.big.authorization.dao.daoImplements;
 
-import org.hibernate.SessionFactory;
 
 import com.big.authorization.dao.daoInterface.UserDaoI;
 import com.big.authorization.dao.hibernatedao.HibernateBaseDao;

@@ -12,12 +12,6 @@
 package com.big.authorization.dao.daoInterface;
 
 import java.util.List;
-import java.util.Map;
-
-import com.big.authorization.po.AuthorizedWeb;
-import com.big.authorization.po.AuthorizedWebapi;
-import com.big.authorization.po.User;
-import com.big.authorization.po.WebInfo;
 import com.big.authorization.po.WebapiStatistics;
 
 

@@ -11,13 +11,9 @@
  ***********************************************************************/
 package com.big.authorization.dao.daoInterface;
 
-import java.util.Collection;
 import java.util.List;
 
-import com.big.authorization.po.AuthorizedWeb;
 import com.big.authorization.po.AuthorizedWebapi;
-import com.big.authorization.po.User;
-import com.big.authorization.po.WebInfo;
 
 
 /** CopyRright (c) 2013: Biodiversity Informatics Group of IOZ, all right reserved

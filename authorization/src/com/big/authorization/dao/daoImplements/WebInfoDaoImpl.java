@@ -14,9 +14,6 @@ package com.big.authorization.dao.daoImplements;
 import java.util.Collection;
 import java.util.List;
 
-import org.hibernate.SessionFactory;
-
-import com.big.authorization.dao.daoInterface.UserDaoI;
 import com.big.authorization.dao.daoInterface.WebInfoDaoI;
 import com.big.authorization.dao.hibernatedao.HibernateBaseDao;
 import com.big.authorization.po.WebInfo;

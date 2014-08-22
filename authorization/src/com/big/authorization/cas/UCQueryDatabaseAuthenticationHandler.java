@@ -5,14 +5,14 @@ import org.jasig.cas.authentication.handler.AuthenticationException;
 import org.jasig.cas.authentication.principal.UsernamePasswordCredentials;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 
-import com.sun.istack.NotNull;
+//import com.sun.istack.NotNull;
 /*
  * 自定义查询数据库验证Handler,只需在deployerConfigContext.xml中的bean节点中引用该类即可
  */
 public class UCQueryDatabaseAuthenticationHandler extends
 		AbstractJdbcUsernamePasswordAuthenticationHandler {
 
-	@NotNull
+//	@NotNull
 	private String sql;
 //	@NotNull
 //	private String sqlForMore;

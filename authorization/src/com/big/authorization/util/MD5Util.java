@@ -1,10 +1,6 @@
 package com.big.authorization.util;
 
-import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.util.Arrays;
 
 public class MD5Util {
 

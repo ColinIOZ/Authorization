@@ -12,16 +12,10 @@
 package com.big.authorization.dao.daoImplements;
 
 import java.util.List;
-import java.util.Map;
 
 import com.big.authorization.dao.daoInterface.WebapiStatisticsDaoI;
 import com.big.authorization.dao.hibernatedao.HibernateBaseDao;
-import com.big.authorization.po.AuthorizedWeb;
-import com.big.authorization.po.AuthorizedWebapi;
-import com.big.authorization.po.User;
-import com.big.authorization.po.WebInfo;
 import com.big.authorization.po.WebapiStatistics;
-import com.big.authorization.service.serviceInterface.WebapiStatisticsServiceI;
 
 
 /** CopyRright (c) 2013: Biodiversity Informatics Group of IOZ, all right reserved

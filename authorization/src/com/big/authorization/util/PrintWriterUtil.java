@@ -16,7 +16,6 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletResponse;
 
-import com.big.authorization.po.User;
 
 
 /** CopyRright (c) 2013: Biodiversity Informatics Group of IOZ, all right reserved

@@ -11,7 +11,6 @@
  ***********************************************************************/
 package com.big.authorization.util;
 
-import java.util.UUID;
 
 
 /** CopyRright (c) 2013: Biodiversity Informatics Group of IOZ, all right reserved

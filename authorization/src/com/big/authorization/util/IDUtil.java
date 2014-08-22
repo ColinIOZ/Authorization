@@ -13,7 +13,6 @@ package com.big.authorization.util;
 
 import java.util.UUID;
 
-import com.big.authorization.po.User;
 
 
 /** CopyRright (c) 2013: Biodiversity Informatics Group of IOZ, all right reserved

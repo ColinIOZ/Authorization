@@ -18,17 +18,14 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.StaleStateException;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 
 import com.big.authorization.exception.DaoException;
 import com.big.authorization.exception.UpdateException;
-import com.big.authorization.po.User;
 
 
 /** CopyRright (c) 2013: Biodiversity Informatics Group of IOZ, all right reserved

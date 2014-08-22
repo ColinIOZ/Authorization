@@ -16,7 +16,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import com.sun.org.apache.regexp.internal.recompile;
 
 /** CopyRright (c) 2013: Biodiversity Informatics Group of IOZ, all right reserved
  * Project: authorization

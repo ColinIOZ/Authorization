@@ -13,7 +13,6 @@
 package com.big.authorization.po;
 
 import java.io.Serializable;
-import java.util.*;
 
 /** CopyRright (c) 2013: Biodiversity Informatics Group of IOZ, all right reserved
  * Project: authorization
